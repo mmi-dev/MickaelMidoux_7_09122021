@@ -1,0 +1,90 @@
+// filter menu
+
+// categories colors
+.ingredients {
+  background-color: $color-ingredients;
+}
+.appareils {
+  background-color: $color-appareils;
+}
+.ustensiles {
+  background-color: $color-ustensiles;
+}
+
+.filters {
+  margin: 25px 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 15px;
+  &__tags {
+    // width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  &__select-menu {
+    // width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+// filters tags
+.tags {
+  color: $color-tag-text;
+  display: flex;
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    gap: 11px;
+    height: 37px;
+    padding: 0 20px;
+    border-radius: 5px;
+    & button {
+      text-indent: -9999px;
+      width: 24px;
+      height: 24px;
+      background: url(../img/close.svg) no-repeat;
+    }
+  }
+}
+
+// filters select menu
+.category {
+  display: flex;
+  justify-content: space-between;
+
+  color: $color-filter-text;
+  min-width: 170px;
+  height: 69px;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0 10px 0 15px;
+  &__input {
+    display: none;
+  }
+  &__input::placeholder {
+    color: $color-filter-placeholder;
+    flex-basis: auto;
+  }
+  &__btn {
+    width: 32px;
+    height: 32px;
+    // content: '';
+    background: url(../img/arrow.svg) no-repeat;
+  }
+  &.active {
+    & .category__tittle {
+      display: none;
+    }
+    & .category__input {
+      display: block;
+    }
+  }
+}
