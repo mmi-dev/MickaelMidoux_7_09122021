@@ -54,13 +54,9 @@
     font-size: 12px;
     padding-right: 5px;
     & .ingredient {
-      display: flex;
-      flex-wrap: wrap;
+      // display: inline;
+      // flex-wrap: wrap;
       line-height: 14.4px;
-      &__name {
-        font-weight: 700;
-        margin-right: 3px;
-      }
     }
   }
   &__preparation {

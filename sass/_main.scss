@@ -30,6 +30,6 @@ header {
 // recipes
 .recipes {
   display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, minmax(370px, 1fr));
   grid-gap: 50px;
 }
