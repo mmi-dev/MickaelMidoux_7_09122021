@@ -1,0 +1,1 @@
+function createTag(name, type) {}
