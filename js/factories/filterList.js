@@ -6,7 +6,7 @@ function optionsListFactory(type, liste) {
     list.setAttribute('class', type)
     optionsList.forEach((e) => {
       const listItem = document.createElement('li')
-      listItem.innerHTML = `<a>${e}</a>`
+      listItem.innerHTML = `<a data-type="${type}">${e}</a>`
       list.appendChild(listItem)
     })
 

@@ -12,7 +12,6 @@ document.addEventListener('click', (e) => {
       if (!menu.contains(e.target)) {
         menu.classList.remove('active')
       } else {
-        console.log(e.target.classList.contains('category__btn'))
         if (e.target.classList.contains('category__btn')) {
           menu.classList.toggle('active')
         } else {
