@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logo.svg" sizes="any" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Les Petits Plats</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <img src="img/logo.svg" alt="" />
+        <h1>Les petits plats</h1>
+      </header>
+      <main>
+        <section class="search">
+          <!-- search bar -->
+          <form>
+            <input
+              type="search"
+              class="search__input"
+              placeholder="Rechercher une recette"
+            />
+            <button type="submit" class="search__btn">Rechercher</button>
+          </form>
+          <!-- filter buttons -->
+          <div class="filters">
+            <div class="tags filters__tags">
+              <!-- liste des tags a créer en JS -->
+            </div>
+            <div class="select-menu filters__select-menu">
+              <div class="category select-menu__category ingredients">
+                <div class="category__menu">
+                  <span class="category__tittle">Ingredients</span>
+                  <input
+                    type="search"
+                    class="category__input"
+                    placeholder="Rechercher un ingredients"
+                  />
+                  <span class="category__btn"></span>
+                </div>
+                <div id="ingredients-list" class="category__list"></div>
+              </div>
+              <div class="category select-menu__category appareils">
+                <div class="category__menu">
+                  <span class="category__tittle">Appareils</span>
+                  <input
+                    type="search"
+                    class="category__input"
+                    placeholder="Rechercher un appareils"
+                  />
+                  <span class="category__btn"></span>
+                </div>
+                <div id="appliances-list" class="category__list"></div>
+              </div>
+              <div class="category select-menu__category ustensiles">
+                <div class="category__menu">
+                  <span class="category__tittle">Ustensiles</span>
+                  <input
+                    type="search"
+                    class="category__input"
+                    placeholder="Rechercher un ustensiles"
+                  />
+                  <span class="category__btn"></span>
+                </div>
+                <div id="ustensils-list" class="category__list"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="recipes" class="recipes">
+          <!-- liste des recettes -->
+        </section>
+      </main>
+    </div>
+    <script src="data/recipes.js"></script>
+    <script src="js/factories/recipes.js"></script>
+    <script src="js/factories/filterList.js"></script>
+    <script src="js/factories/tagsList.js"></script>
+    <script src="js/utils/button.js"></script>
+    <script src="js/pages/index.js"></script>
+  </body>
+</html>

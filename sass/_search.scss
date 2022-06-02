@@ -1,0 +1,29 @@
+// search menu
+.search {
+  width: 100%;
+
+  & form {
+    display: flex;
+    background-color: $color-search-bg;
+    color: $color-serch-text;
+    height: 69px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    border-radius: 5px;
+  }
+  &__input {
+    flex-grow: 1;
+    padding: 0 10px;
+    &::placeholder {
+      color: $color-serch-placeholder;
+    }
+  }
+  &__btn {
+    width: 44px;
+    height: 44px;
+    text-indent: -9999px;
+    background: url(../img/search.svg) no-repeat;
+    cursor: pointer;
+  }
+}

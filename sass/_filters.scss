@@ -1,0 +1,131 @@
+// filter menu
+
+// categories colors
+.ingredients {
+  background-color: $color-ingredients;
+}
+.appareils {
+  background-color: $color-appareils;
+}
+.ustensiles {
+  background-color: $color-ustensiles;
+}
+
+.filters {
+  margin: 25px 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 15px;
+  &__tags {
+    // width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  &__select-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+// filters tags
+.tags {
+  color: $color-tag-text;
+  display: flex;
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    gap: 11px;
+    height: 37px;
+    padding: 0 20px;
+    border-radius: 5px;
+    & button {
+      text-indent: -9999px;
+      width: 24px;
+      height: 24px;
+      background: url(../img/close.svg) no-repeat;
+    }
+  }
+}
+
+// filters select menu
+.category {
+  display: flex;
+  flex-direction: column;
+  color: $color-filter-text;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    min-width: 170px;
+    height: 69px;
+    align-items: center;
+    padding: 0 10px 0 15px;
+  }
+  &__input {
+    display: none;
+    flex-grow: 1;
+  }
+  &__input::placeholder {
+    color: $color-filter-placeholder;
+    flex-basis: auto;
+  }
+  &__btn {
+    width: 32px;
+    height: 32px;
+    // content: '';
+    background: url(../img/arrow.svg) no-repeat;
+    transition: 0.3;
+  }
+  // &:hover {
+  &.active {
+    & .category__tittle {
+      display: none;
+    }
+    & .category__input {
+      display: block;
+      width: 600px;
+    }
+    & .category__list {
+      display: block;
+      z-index: 2;
+    }
+    & .category__btn {
+      transform: rotate(180deg);
+    }
+  }
+  &__list {
+    position: relative;
+    display: none;
+    padding: 0 15px;
+    width: 100%;
+    & ul {
+      box-sizing: border-box;
+      position: absolute;
+      width: 100%;
+      top: -10px;
+      left: 0px;
+      column-count: 3;
+      column-gap: 30px;
+      padding: 15px;
+
+      border-radius: 5px;
+    }
+    & li {
+      margin: 5px 0;
+    }
+    & a {
+      cursor: pointer;
+      &:hover {
+        // color: $color-filter-placeholder;
+        font-weight: 700;
+      }
+    }
+  }
+}
