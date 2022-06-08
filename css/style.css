@@ -359,7 +359,7 @@ header h1 {
 }
 
 .category__list li {
-  margin: 5px 0;
+  margin-bottom: 5px;
 }
 
 .category__list a {

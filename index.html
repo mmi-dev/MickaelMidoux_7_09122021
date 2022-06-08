@@ -38,6 +38,8 @@
                     type="search"
                     class="category__input"
                     placeholder="Rechercher un ingredients"
+                    data-type="ingredients"
+                    data-list="#ingredients-list"
                   />
                   <span class="category__btn"></span>
                 </div>
@@ -48,8 +50,11 @@
                   <span class="category__tittle">Appareils</span>
                   <input
                     type="search"
+                    id="search-appareils"
                     class="category__input"
                     placeholder="Rechercher un appareils"
+                    data-type="appareils"
+                    data-list="#appliances-list"
                   />
                   <span class="category__btn"></span>
                 </div>
@@ -62,6 +67,8 @@
                     type="search"
                     class="category__input"
                     placeholder="Rechercher un ustensiles"
+                    data-type="ustensiles"
+                    data-list="#ustensils-list"
                   />
                   <span class="category__btn"></span>
                 </div>
@@ -80,6 +87,8 @@
     <script src="js/factories/filterList.js"></script>
     <script src="js/factories/tagsList.js"></script>
     <script src="js/utils/button.js"></script>
+    <script src="js/utils/tagFilter.js"></script>
+    <script src="js/utils/searchTag.js"></script>
     <script src="js/pages/index.js"></script>
   </body>
 </html>

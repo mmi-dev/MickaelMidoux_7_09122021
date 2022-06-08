@@ -1,10 +1,18 @@
-async function getRecipes() {
-  const recipesData = recipes
-  return { recipesData }
-}
+let recipesList
+
+// async function getRecipes() {
+//   const recipesData = recipes
+//   const tester = { recipesData }
+//   console.log(recipes)
+//   console.log(recipesData)
+//   console.log(tester)
+//   // recipesList=recipesData.
+//   return { recipesData }
+// }
 
 async function displayRecipes(recipesList) {
   const recipesSection = document.querySelector('#recipes')
+  recipesSection.innerHTML = ''
   const liste = recipesList
   for (let i = 0; i < liste.length; i++) {
     const recipeModel = recipesFactory(liste[i])
@@ -37,12 +45,12 @@ async function displayOptions(recipesList) {
 }
 
 async function init() {
-  const recipesList = await getRecipes()
-  // recipies cards creation
-  const recipesCards = await displayRecipes(recipesList.recipesData)
+  // recipesList = await getRecipes()
+  recipesList = recipes
+  // recipes cards creation
+  const recipesCards = await displayRecipes(recipesList)
   // options lists creation
-  const optionsList = await displayOptions(recipesList.recipesData)
-
-  return { recipesCards }
+  const optionsList = await displayOptions(recipesList)
+  return { recipesCards, optionsList, recipesList }
 }
 init()
