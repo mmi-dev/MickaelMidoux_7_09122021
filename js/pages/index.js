@@ -1,15 +1,5 @@
 let recipesList
 
-// async function getRecipes() {
-//   const recipesData = recipes
-//   const tester = { recipesData }
-//   console.log(recipes)
-//   console.log(recipesData)
-//   console.log(tester)
-//   // recipesList=recipesData.
-//   return { recipesData }
-// }
-
 async function displayRecipes(recipesList) {
   const recipesSection = document.querySelector('#recipes')
   recipesSection.innerHTML = ''
