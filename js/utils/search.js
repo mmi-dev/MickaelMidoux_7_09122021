@@ -1,49 +1,70 @@
 const searchBar = document.querySelector('.search__input')
 
-async function searchWords() {
-  let inputText = this.value
+async function searchWord(keywords) {
+  const inputText = keywords // this.value
   let filteredList = []
-  console.log(inputText.length)
   if (inputText.length >= 3) {
-    // ingredients filter
-    filteredIngredientsList = recipesList.filter((recipe) => {
+    // global filter
+    filteredList = recipesList.filter((recipe) => {
       return (
         recipe.ingredients.filter((el) => {
           return (
             el.ingredient.toLowerCase().indexOf(inputText.toLowerCase()) !== -1
           )
-        }).length !== 0
+        }).length !== 0 ||
+        recipe.name.toLowerCase().indexOf(inputText.toLowerCase()) !== -1 ||
+        recipe.description.toLowerCase().indexOf(inputText.toLowerCase()) !== -1
       )
     })
-
-    // appliance filter
-    filteredApplianceList = recipesList.filter((recipe) => {
-      return (
-        recipe.appliance.toLowerCase().indexOf(inputText.toLowerCase()) !== -1
-      )
-    })
-
-    // ustensils filter
-    filteredUstensilsList = recipesList.filter((recipe) => {
-      return (
-        recipe.ustensils.filter((el) => {
-          return el.toLowerCase().indexOf(inputText.toLowerCase()) !== -1
-        }).length !== 0
-      )
-    })
-
-    //merge filtered list
-    filteredList = [
-      ...filteredIngredientsList,
-      ...filteredApplianceList,
-      ...filteredUstensilsList,
-    ]
+    // delete double
     filteredList = [...new Set(filteredList)]
-
     // refresh view and list
     await displayRecipes(filteredList)
     await displayOptions(filteredList)
   }
 }
 
-searchBar.onkeyup = searchWords
+async function searchEachWord(keywords) {
+  const inputText = keywords //this.value
+  const wordsList = inputText.split(' ')
+  const baseList = recipesList
+  let filteredList = []
+  if (inputText.length >= 3) {
+    // filter
+    filteredList = baseList
+    wordsList.forEach(async (word) => {
+      console.log(word)
+      if (word.length !== 0) {
+        filteredList = filteredList.filter((recipe) => {
+          return (
+            recipe.ingredients.filter((el) => {
+              return (
+                el.ingredient.toLowerCase().indexOf(word.toLowerCase()) !== -1
+              )
+            }).length !== 0 ||
+            recipe.name.toLowerCase().indexOf(word.toLowerCase()) !== -1 ||
+            recipe.description.toLowerCase().indexOf(word.toLowerCase()) !== -1
+          )
+        })
+        // delete double
+        filteredList = [...new Set(filteredList)]
+      }
+    })
+  } else {
+    filteredList = recipesList
+  }
+  // refresh view and list
+  await displayRecipes(filteredList)
+  await displayOptions(filteredList)
+}
+
+// search by individual keyword (false) or by group (true)
+let searchByGroup = true
+
+searchBar.onkeyup = function () {
+  if (searchByGroup) {
+    searchEachWord(this.value) // search for each keyword
+  } else {
+    searchWord(this.value) // search for keywords group
+  }
+}
