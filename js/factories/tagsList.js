@@ -44,7 +44,6 @@ async function createTag(name, type) {
   filterTags.appendChild(tag)
   // delete search tag input content
   searchTagInputs.forEach((e) => {
-    console.log(e)
     e.value = ''
   })
   // set remove buttons

@@ -14,11 +14,6 @@ function searchTag() {
   // filter
   switch (this.dataset.type) {
     case 'ingredients':
-      console.log(
-        ingredientsList.filter((tag) => {
-          return tag.toLowerCase().indexOf(this.value.toLowerCase()) !== -1
-        })
-      )
       filteredList = tagList(ingredientsList)
       break
     case 'appareils':

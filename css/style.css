@@ -123,6 +123,15 @@ header h1 {
   grid-gap: 50px;
 }
 
+#error-msg {
+  display: none;
+  width: 100%;
+  padding: 20px;
+  margin: 40px 0;
+  background-color: #e7e7e7;
+  border-radius: 5px;
+}
+
 .search {
   width: 100%;
 }

@@ -1,7 +1,10 @@
 const searchBar = document.querySelector('.search__input')
+const errorMsg = document.querySelector('#error-msg')
 
 async function searchWord(keywords) {
-  const inputText = keywords // this.value
+  const inputText = keywords
+
+  errorMsg.style.display = 'none'
   let filteredList = []
   if (inputText.length >= 3) {
     // global filter
@@ -19,6 +22,10 @@ async function searchWord(keywords) {
     // delete double
     filteredList = [...new Set(filteredList)]
     // refresh view and list
+    if (filteredList.length === 0) {
+      errorMsg.style.display = 'block'
+    }
+
     await displayRecipes(filteredList)
     await displayOptions(filteredList)
   }
@@ -28,6 +35,7 @@ async function searchEachWord(keywords) {
   const inputText = keywords //this.value
   const wordsList = inputText.split(' ')
   const baseList = recipesList
+  errorMsg.style.display = 'none'
   let filteredList = []
   if (inputText.length >= 3) {
     // filter
@@ -54,6 +62,10 @@ async function searchEachWord(keywords) {
     filteredList = recipesList
   }
   // refresh view and list
+  if (filteredList.length === 0) {
+    errorMsg.style.display = 'block'
+    console.log('liste vide')
+  }
   await displayRecipes(filteredList)
   await displayOptions(filteredList)
 }
