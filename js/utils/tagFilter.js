@@ -24,7 +24,6 @@ async function filterByTag(list, tag, tagType) {
   }
   if (!filteredList) {
     // si la liste est vide
-    console.log('aucune recettes ne correspond')
   } else {
     // recipies cards refresh
     const recipesCardsRefresh = await displayRecipes(filteredList)
@@ -64,7 +63,6 @@ async function filterByTags(list, tagList) {
   })
   if (!filteredList) {
     // si la liste est vide
-    console.log('aucune recettes ne correspond')
   } else {
     // recipies cards refresh
     const recipesCardsRefresh = await displayRecipes(filteredList)

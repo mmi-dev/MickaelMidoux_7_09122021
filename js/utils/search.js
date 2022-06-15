@@ -41,7 +41,6 @@ async function searchEachWord(keywords) {
     // filter
     filteredList = baseList
     wordsList.forEach(async (word) => {
-      console.log(word)
       if (word.length !== 0) {
         filteredList = filteredList.filter((recipe) => {
           return (
@@ -64,7 +63,6 @@ async function searchEachWord(keywords) {
   // refresh view and list
   if (filteredList.length === 0) {
     errorMsg.style.display = 'block'
-    console.log('liste vide')
   }
   await displayRecipes(filteredList)
   await displayOptions(filteredList)
