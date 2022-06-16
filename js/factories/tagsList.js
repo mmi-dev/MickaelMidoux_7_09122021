@@ -6,7 +6,7 @@ let tagsList = []
 
 // search tag in the list
 const findTag = function (tagslist, name, type) {
-  return tagsList.find(function (tag) {
+  return tagslist.find(function (tag) {
     return tag.tagname === name && tag.tagtype === type
   })
 }
@@ -72,7 +72,6 @@ optionsList.forEach((list) => {
         return false
       } else {
         createTag(e.target.text, e.target.dataset.type)
-        // filterByTag(recipesList, e.target.text, e.target.dataset.type)
         await filterByTags(recipes, tagsList)
       }
     }
