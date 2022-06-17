@@ -123,6 +123,15 @@ header h1 {
   grid-gap: 50px;
 }
 
+#error-msg {
+  display: none;
+  width: 100%;
+  padding: 20px;
+  margin: 40px 0;
+  background-color: #e7e7e7;
+  border-radius: 5px;
+}
+
 .search {
   width: 100%;
 }
@@ -359,7 +368,7 @@ header h1 {
 }
 
 .category__list li {
-  margin: 5px 0;
+  margin-bottom: 5px;
 }
 
 .category__list a {

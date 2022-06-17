@@ -1,3 +1,7 @@
+let ingredientsList
+let applianceList
+let ustensilsList
+
 function optionsListFactory(type, liste) {
   const optionsList = liste
 
@@ -18,7 +22,7 @@ function optionsListFactory(type, liste) {
 
 async function displayOptionsList(recipesList, id, type) {
   const optionsFilter = document.querySelector(id)
-
+  optionsFilter.innerHTML = ''
   let options = []
   // list all options
   for (let i = 0; i < recipesList.length; i++) {
@@ -27,14 +31,17 @@ async function displayOptionsList(recipesList, id, type) {
         recipesList[i].ingredients.forEach((e) => {
           options.push(e.ingredient)
         })
+        ingredientsList = [...new Set(options)]
         break
       case 'appareils':
         options.push(recipesList[i].appliance)
+        applianceList = [...new Set(options)]
         break
       case 'ustensiles':
         recipesList[i].ustensils.forEach((e) => {
           options.push(e)
         })
+        ustensilsList = [...new Set(options)]
         break
       default:
     }
@@ -45,6 +52,7 @@ async function displayOptionsList(recipesList, id, type) {
   options.sort()
 
   const optionsModel = optionsListFactory(type, options)
-  const optionssListDOM = optionsModel.getOptionsListDOM()
-  optionsFilter.appendChild(optionssListDOM)
+  const optionsListDOM = optionsModel.getOptionsListDOM()
+  optionsFilter.appendChild(optionsListDOM)
+  return { ingredientsList, applianceList, ustensilsList }
 }
