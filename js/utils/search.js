@@ -1,6 +1,18 @@
 const searchBar = document.querySelector('.search__input')
 const errorMsg = document.querySelector('#error-msg')
 
+// creation d'une grande liste
+let recipesList2 = [...recipes]
+function bigList() {
+  for (i = 0; i < 4; i++) {
+    recipesList2 = [...recipesList2, ...recipes1]
+  }
+  console.log(recipesList2)
+}
+// bigList()
+
+console.log(recipesList2.length)
+
 async function searchWord(keywords) {
   const inputText = keywords
 
@@ -32,9 +44,11 @@ async function searchWord(keywords) {
 }
 
 async function searchEachWord(keywords) {
+  console.time('test-1')
   const inputText = keywords //this.value
   const wordsList = inputText.split(' ')
-  const baseList = recipesList
+  const baseList = recipesList2
+  console.log(baseList.length)
   errorMsg.style.display = 'none'
   let filteredList = []
   if (inputText.length >= 3) {
@@ -58,7 +72,7 @@ async function searchEachWord(keywords) {
       }
     })
   } else {
-    filteredList = recipesList
+    filteredList = recipesList2
   }
   // refresh view and list
   if (filteredList.length === 0) {
@@ -66,6 +80,10 @@ async function searchEachWord(keywords) {
   }
   await displayRecipes(filteredList)
   await displayOptions(filteredList)
+  console.timeLog('test-1')
+
+  console.log(filteredList.length)
+  console.timeEnd('test-1')
 }
 
 // search by individual keyword (false) or by group (true)
