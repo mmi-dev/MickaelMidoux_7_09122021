@@ -1,10 +1,26 @@
 const searchBar = document.querySelector('.search__input')
 const errorMsg = document.querySelector('#error-msg')
 
+// creation d'une grande liste
+let recipesList2 = [...recipes]
+function bigList() {
+  for (i = 0; i < 4; i++) {
+    recipesList2 = [...recipesList2, ...recipes1]
+  }
+  console.log(recipesList2)
+}
+bigList()
+
+console.log(recipesList2.length)
+
 async function searchEachWord(keywords) {
+  console.time('test-2')
+
   const inputText = keywords //this.value
   const wordsList = inputText.split(' ')
-  const baseList = [...new Set(recipesList)]
+  const baseList = [...new Set(recipesList2)]
+  console.log(baseList.length)
+
   errorMsg.style.display = 'none'
   let filteredList = []
   if (inputText.length >= 3) {
@@ -40,6 +56,10 @@ async function searchEachWord(keywords) {
   }
   await displayRecipes(filteredList)
   await displayOptions(filteredList)
+  console.timeLog('test-2')
+
+  console.log(filteredList.length)
+  console.timeEnd('test-2')
 }
 
 // search by keyword
