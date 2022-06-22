@@ -9,7 +9,7 @@ function bigList() {
   }
   console.log(recipesList2)
 }
-bigList()
+// bigList()
 
 console.log(recipesList2.length)
 
@@ -18,7 +18,7 @@ async function searchEachWord(keywords) {
 
   const inputText = keywords //this.value
   const wordsList = inputText.split(' ')
-  const baseList = [...recipesList2]
+  const baseList = recipesList2
   console.log(baseList.length)
 
   errorMsg.style.display = 'none'
@@ -48,7 +48,7 @@ async function searchEachWord(keywords) {
       // filteredList = [...new Set(filteredList)]
     })
   } else {
-    filteredList = recipes1
+    filteredList = recipesList2
   }
   // refresh view and list
   if (filteredList.length === 0) {
