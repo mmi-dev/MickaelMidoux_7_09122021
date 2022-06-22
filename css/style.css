@@ -98,7 +98,7 @@ body {
 .wrapper {
   width: 95%;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1400px;
 }
 
 header {
@@ -118,8 +118,8 @@ header h1 {
 .recipes {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(370px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+  -ms-grid-columns: (minmax(370px, 1fr))[3];
+      grid-template-columns: repeat(3, minmax(370px, 1fr));
   grid-gap: 50px;
 }
 
