@@ -92,7 +92,7 @@ li {
 body {
   font-family: 'Lato', sans-serif;
   font-size: 18px;
-  padding: 0 auto;
+  padding: 0px;
 }
 
 .wrapper {
@@ -118,8 +118,8 @@ header h1 {
 .recipes {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(370px, 1fr))[3];
-      grid-template-columns: repeat(3, minmax(370px, 1fr));
+  -ms-grid-columns: (minmax(370px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
   grid-gap: 50px;
 }
 
@@ -322,8 +322,8 @@ header h1 {
   width: 32px;
   height: 32px;
   background: url(../img/arrow.svg) no-repeat;
-  -webkit-transition: 0.3;
-  transition: 0.3;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .category.active .category__tittle {
