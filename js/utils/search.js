@@ -18,7 +18,7 @@ async function searchEachWord(keywords) {
 
   const inputText = keywords //this.value
   const wordsList = inputText.split(' ')
-  const baseList = [...new Set(recipesList2)]
+  const baseList = [...recipesList2]
   console.log(baseList.length)
 
   errorMsg.style.display = 'none'
@@ -45,10 +45,10 @@ async function searchEachWord(keywords) {
         }
       }
       // delete double
-      filteredList = [...new Set(filteredList)]
+      // filteredList = [...new Set(filteredList)]
     })
   } else {
-    filteredList = recipesList
+    filteredList = recipes1
   }
   // refresh view and list
   if (filteredList.length === 0) {
