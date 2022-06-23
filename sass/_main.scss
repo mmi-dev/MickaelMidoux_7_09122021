@@ -4,6 +4,7 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 18px;
   padding: 0px;
+  overflow-x: hidden;
 }
 
 // wrapper
@@ -30,8 +31,16 @@ header {
 // recipes
 .recipes {
   display: grid;
-  grid-template-columns: repeat(3, minmax(370px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 50px;
+  margin-bottom: 30px;
+  @media screen and (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+  }
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 // error message

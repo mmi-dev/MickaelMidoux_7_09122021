@@ -16,6 +16,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  flex-grow: 1;
   gap: 15px;
   &__tags {
     // width: 100%;
@@ -60,6 +61,7 @@
   color: $color-filter-text;
   flex-wrap: wrap;
   border-radius: 5px;
+  max-width: 650px;
   &__menu {
     display: flex;
     justify-content: space-between;
@@ -85,12 +87,13 @@
   }
   // &:hover {
   &.active {
+    flex-grow: 3;
     & .category__tittle {
       display: none;
     }
     & .category__input {
       display: block;
-      width: 600px;
+      max-width: 600px;
     }
     & .category__list {
       display: block;
@@ -127,5 +130,11 @@
         font-weight: 700;
       }
     }
+  }
+  @media screen and (max-width: 992px) {
+    max-width: 100%;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
   }
 }
